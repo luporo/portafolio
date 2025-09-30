@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Mi Portafolio</h1>
+    <nav class="navbar">
+        <a href="#inicio" class="nav-item">Inicio</a>
+        <a href="sobre-mi.html" class="nav-item">Sobre mí</a>
+        <a href="#proyectos" class="nav-item">Proyectos</a>
+        <a href="#formulario" class="nav-item">Formulario</a>
+        <a href="#contacto" class="nav-item">Contacto</a>
+        <a href="#referencias" class="nav-item">Referencias</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <h2 id="typewriter" data-text="Luciano Andres Porolli Muri"></h2>
+      <h3>Lic. en ciencias de la informacion</h3>
+    </section>
+
+    
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p class="lead">Si deseas contactarme, por favor completa el siguiente formulario o escríbeme directamente. <br><strong>Luciano A. Porolli</strong></p>
+      <img src="img/yoPlaya.JPG" alt="Luciano A. Porolli" width="200" height="200">
+
+      <div class="contact-card">
+        <div class="social">
+          <i class="fa-brands fa-instagram"></i>
+          <span>Instagram: <a href="https://instagram.com/lporolli" target="_blank">@lporolli</a></span>
+        </div>
+        <div class="social">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp: <a href="https://wa.me/5492644849224" target="_blank">+54 9 2644849224</a></span>
+        </div>
+        <div class="social">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Email: <a href="mailto:l.porolli@hotmail.com" id="email-link">l.porolli@hotmail.com</a></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="referencias">
+      <h2>Referencias</h2>
+      <blockquote>
+        <p>“Excelente trabajando en equipo y responsable.”</p>
+        <footer>- Profesora Cynthia Aguilera</footer>
+      </blockquote>
+    </section>
+    <section id="proyectos">
+      <h2>Mis Proyectos</h2>
+      <p>Podés ver mi segundo proyecto haciendo clic en el enlace:</p>
+      <a href="proyecto.html" target="_blank" class="btn-proyecto">Ver Proyecto</a>
+    </section>
+    <section id="formulario">
+      <h2>Formulario de contacto</h2>
+      <form id="contactForm">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required>
+        <small id="err-nombre" class="error-msg" aria-live="polite"></small>
+        <br><br>
+
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" name="apellido" required>
+        <small id="err-apellido" class="error-msg" aria-live="polite"></small>
+        <br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required>
+        <small id="err-email" class="error-msg" aria-live="polite"></small>
+        <br><br>
+
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="formMessage" style="display:none; color:green; font-weight:bold;">Formulario enviado</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> - Luciano Andres Porolli Muri</p>
+  </footer>
+  <button id="backToTop" class="back-to-top" aria-label="Volver arriba">↑</button>
+</body>
+</html>

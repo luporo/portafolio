@@ -1,0 +1,91 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto — Luciano Porolli</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Flechas laterales grandes, semi-transparente con hover */
+    .carousel { position: relative; display: flex; align-items: center; margin: 18px 0; }
+    .carousel-viewport { overflow: hidden; width: 100%; flex: 1; }
+    .carousel-track { display: flex; gap: 14px; scroll-behavior: smooth; }
+    .carousel-item { flex: 0 0 auto; width: 360px; max-width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; border: 1px solid #37553433; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); border: none; background: rgba(255,255,255,0.8); color: #375534; border-radius: 50%; width: 60px; height: 60px; font-size: 32px; cursor: pointer; line-height: 1; opacity: .5; transition: opacity .3s; }
+    .carousel-btn:hover { opacity: 1; }
+    .carousel-btn.prev { left: -70px; }
+    .carousel-btn.next { right: -70px; }
+    @media (max-width: 768px){ .carousel-item{ width: 260px; } .carousel-btn.prev{ left: -40px;} .carousel-btn.next{ right: -40px;} }
+  </style>
+</head>
+<body>
+  <section id="proyecto" class="section">
+    <div class="card">
+      <h1 style="text-align:center; margin-top:0;">Proyecto</h1>
+      <p style="text-align:center; margin-top:6px;">Descripción breve del proyecto: objetivo, tareas realizadas y tecnologías utilizadas.</p>
+
+      <hr style="margin:22px 0; border:0; border-top:1px solid rgba(0,0,0,0.1);" />
+
+      <div style="max-width:800px; margin:0 auto;">
+        <h2 style="margin:0 0 10px; text-align:center;">Detalles</h2>
+        <ul style="line-height:1.7; margin:0 auto 16px; max-width:620px;">
+          <li><strong>Rol:</strong> Desarrollo Frontend</li>
+          <li><strong>Tecnologías:</strong> HTML, CSS, JavaScript</li>
+          <li><strong>Fecha:</strong> Septiembre 2025</li>
+        </ul>
+
+        <!-- Carrusel horizontal con flechas -->
+        <div class="carousel" id="carrusel-proyecto">
+          <button class="carousel-btn prev" aria-label="Ver imágenes anteriores">&lt;</button>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <img src="img/notre.JPG" alt="Imagen del Proyecto" class="carousel-item" />
+              <video src="vid/vid1.MOV" class="carousel-item" controls></video>
+              <video src="vid/vid2.mov" class="carousel-item" controls></video>
+              <img src="img/IMG_1261.HEIC" alt="Imagen 1261" class="carousel-item" />
+              <img src="img/IMG_1280.HEIC" alt="Imagen 1280" class="carousel-item" />
+              <img src="img/IMG_1314.HEIC" alt="Imagen 1314" class="carousel-item" />
+              <img src="img/IMG_1319.HEIC" alt="Imagen 1319" class="carousel-item" />
+              <img src="img/IMG_1328.HEIC" alt="Imagen 1328" class="carousel-item" />
+              <img src="img/IMG_1451.HEIC" alt="Imagen 1451" class="carousel-item" />
+            </div>
+          </div>
+          <button class="carousel-btn next" aria-label="Ver imágenes siguientes">&gt;</button>
+        </div>
+
+        <!-- Acciones -->
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:10px;">
+          <a href="https://wa.me/5492644849224?text=Hola%20Luciano,%20vi%20tu%20Proyecto%20en%20tu%20portfolio" target="_blank" class="btn-proyecto" style="text-align:center;"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</a>
+          <a href="index.html#proyectos" class="btn-proyecto" style="text-align:center;"><i class="fa-solid fa-house"></i> Volver a la página principal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Carrusel básico (sin dependencias)
+    (function(){
+      var root = document.getElementById('carrusel-proyecto');
+      if(!root) return;
+      var track = root.querySelector('.carousel-track');
+      var viewport = root.querySelector('.carousel-viewport');
+      var prevBtn = root.querySelector('.carousel-btn.prev');
+      var nextBtn = root.querySelector('.carousel-btn.next');
+      function cardWidth(){
+        var first = track.querySelector('.carousel-item');
+        if(!first) return viewport.clientWidth;
+        var style = window.getComputedStyle(first);
+        var w = first.getBoundingClientRect().width;
+        var mr = parseFloat(style.marginRight || '0');
+        return w + mr + 14; // gap aproximado
+      }
+      function scrollByCards(dir){ viewport.scrollLeft += dir * cardWidth(); }
+      prevBtn.addEventListener('click', function(){ scrollByCards(-1); });
+      nextBtn.addEventListener('click', function(){ scrollByCards(1); });
+    })();
+  </script>
+</body>
+</html>
